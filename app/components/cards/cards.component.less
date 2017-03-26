@@ -1,0 +1,146 @@
+@import '../../variables.less';
+
+section.wrap-cards {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	.card {
+		height: 250px;
+		margin: 2.5px;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0, 0, 0, 0.12);
+		display: flex;
+		flex-basis: 300px;
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-direction: column;
+		.card-title {
+			height: 40px;
+			z-index: 10;
+			padding-left: 20px;
+			padding-right: 20px;
+			box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
+			background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
+			h3 {
+				font-size: 1.4rem;
+				font-weight: bold;
+				line-height: 40px;
+				color: #000;
+				margin: 0;
+				small {
+					font-size: 1.2rem;
+					font-weight: 400;
+				}
+			}
+		}
+		.card-content {
+			z-index: 0;
+			padding: 10px 20px;
+			display: flex;
+			flex-direction: row;
+			overflow: hidden;
+			align-items: center;
+			background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+			.card-gallery {
+				margin: -10px -20px;
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 100%;
+				height: 210px;
+				overflow: hidden;
+				.gallery-row {
+					display: flex;
+					flex-direction: row;
+					.card-gallery-item {
+						box-sizing: border-box;
+						cursor: pointer;
+						height: 210px;
+						display: flex;
+						flex-grow: 1;
+						flex-shrink: 1;
+						flex-basis: 120px;
+						background-size: cover;
+						background-position: center;
+						flex-direction: column;
+						border-right: 1px solid #fff;
+						&:last-of-type {
+							border-right: none;
+						}
+						&.from-bottom {
+							justify-content: flex-end;
+						}
+						&.from-top {
+							justify-content: flex-start;
+						}
+						.eye-catch {
+							min-height: 40px;
+							line-height: 40px;
+							text-align: center;
+							letter-spacing: 5px;
+							font-size: 1.7rem;
+							font-weight: bold;
+							transition: min-height .3s, line-height .6s;
+							p {
+								text-shadow: 1px 1px 1px rgba(10, 10, 10, .5);
+								margin: 0;
+							}
+						}
+						&:hover .eye-catch {
+							min-height: 100%;
+							line-height: 210px;
+						}
+					}
+				}
+			}
+			.card-book {
+				display: flex;
+				flex-direction: row;
+				box-sizing: border-box;
+				height: 210px;
+				margin: -10px -20px;
+				background-image: linear-gradient(to right, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0)), url('http://www.newsm.com/news/photo/201110/2668_5088_1640.jpg');
+				background-size: 60% 100%, 60%;
+				background-position: right center, right center;
+				background-repeat: no-repeat;
+				.card-book-text-con {
+					padding: 10px 20px;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					h4 {
+						font-weight: bold;
+					}
+					button {
+						transform: translateY(-10px);
+					}
+				}
+			}
+			ul {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: stretch;
+				margin-bottom: 0;
+				padding: 0;
+				li {
+					flex: 1;
+					list-style: none;
+					font-size: .8rem;
+					height: .9rem;
+					margin-bottom: 4px;
+					overflow: hidden;
+					&:first-of-type {
+						margin-top: 6px;
+					}
+					a {
+						span.category {
+							font-weight: bold;
+							color: @blue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+

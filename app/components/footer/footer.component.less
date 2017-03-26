@@ -1,0 +1,31 @@
+@import '../../variables.less';
+
+footer {
+	display: flex;
+	height: 360px;
+	margin-top: 2px;
+	padding: 4rem 20px;
+	justify-content: space-around;
+	.con {
+		width: 50%;
+		margin: auto;
+		.sitemap {
+			.col-1 {
+				text-align: center;
+			}
+			h6 {
+				font-size: 1.2rem;
+				margin-bottom: 7px;
+			}
+			a {
+				display: block;
+				margin-bottom: 3px;
+				font-size: 1rem;
+				color: darken(@gray, 60%);
+				&:hover {
+					color: darken(@gray, 80%);
+				}
+			}
+		}
+	}
+}
