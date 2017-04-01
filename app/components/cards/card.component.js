@@ -4,19 +4,26 @@ export default class Card extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+	componentDidMount() {
+		let vm = this;
+	}
 	render() {
+		let content;
+		if (this.props.img) {
+			let _style = {
+				height: '100%',
+				backgroundSize: 'auto 100%',
+				backgroundPosition: 'center',
+				backgroundImage: `url(${this.props.img})`,
+			};
+			content = (
+				<div className='card-content' style={_style}>
+				</div>
+			);
+		}
 		return (
 			<div className='card'>
-				<div className='card-title'>
-					<h3>
-						<i className='fa fa-external-link' aria-hidden='true'></i>
-						&nbsp; 하하
-						<small>&nbsp; - haha</small>
-					</h3>
-				</div>
-				<div className='card-content'>
-					<p>content</p>
-				</div>
+				{content}
 			</div>
 		);
 	}

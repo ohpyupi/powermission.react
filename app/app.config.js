@@ -2,6 +2,7 @@ import {UIRouterReact, servicesPlugin, pushStateLocationPlugin} from 'ui-router-
 
 import Home from './containers/home';
 import Auth from './containers/auth';
+import Media from './containers/media';
 
 import AuthService from './services/auth.service';
 import ErrorService from './services/error.service';
@@ -29,6 +30,11 @@ let states = [
 		onEnter: (trans, state)=>{
 			if ($auth.isLoggedIn()) return $error.flash('Already signed in.', 'home');
 		},
+	},
+	{
+		name: 'media',
+		url: '/media/:mediaType',
+		component: Media,
 	}
 ];
 

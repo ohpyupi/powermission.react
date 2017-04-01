@@ -28,9 +28,9 @@ export default class Home extends React.Component {
 				<MainNav _handleLogout={()=>{this._handleLogout()}}/>
 				<FullWidthCarousel imgArr={this.carouselImgArr}/>
 				<CardWrap>
-					<Card/>
-					<Card/>
-					<Card/>
+					<Card img={require('../lib/img/word.jpg')}/>
+					<Card img={require('../lib/img/media.jpg')}/>
+					<Card img={require('../lib/img/newcomers.jpg')}/>
 					<Card/>
 				</CardWrap>
 				<Footer/>

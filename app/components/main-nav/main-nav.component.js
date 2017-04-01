@@ -40,7 +40,7 @@ export default class MainNav extends React.Component {
 			);
 		}
 		return (
-			<section className='wrap-nav bg-black'>
+			<section className='wrap-nav'>
 				<nav className='main-nav'>
 					<a href='/' className=''>홈</a>
 					<a href='' className='btn-main-nav'>소개</a>
@@ -52,9 +52,10 @@ export default class MainNav extends React.Component {
 				</nav>
 				<div className='sub-nav'>
 					{vm.state.subnavChildren.map(x=>{
+						let _img = x.img || 'angularjs.png';
 						return (
 							<div key={x.name} className='col'>
-								<a href={x.url}><img src={require('../../lib/img/angularjs.png')}/></a>
+								<a href={x.url}><img src={require(`../../lib/img/${_img}`)}/></a>
 								<p>{x.name}</p>
 							</div>
 						);
