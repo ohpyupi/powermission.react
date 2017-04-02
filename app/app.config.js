@@ -6,6 +6,7 @@ import Media from './containers/media';
 
 import AuthService from './services/auth.service';
 import ErrorService from './services/error.service';
+import YoutubeService from './services/google-youtube.service';
 
 
 let router = new UIRouterReact();

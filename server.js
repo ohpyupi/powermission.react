@@ -21,12 +21,22 @@ mongoose.connect(process.env.MONGODB_URI);
 
 const auth = require('./routes/auth');
 const posts = require('./routes/posts');
+const google_youtube = require('./routes/google-youtube');
 
 app.use('/api/auth', auth);
 app.use('/api/posts', posts);
+app.use('/api/google-youtube', google_youtube);
 
 app.get('*', (req, res, next)=>{
 	res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.use((err, req, res, next)=>{
+	console.error(err);
+	res.status(err.status || 500);
+	res.json({
+		message: `Error: ${err.message}`,
+	});
 });
 
 app.listen(port);
