@@ -32,7 +32,8 @@
     "react-dom": "^15.4.2",
     "slippry": "^1.4.0",
     "snackbarjs": "^1.1.0",
-    "ui-router-react": "^0.4.0"
+    "ui-router-react": "^0.4.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",

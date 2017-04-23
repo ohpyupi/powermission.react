@@ -6,6 +6,7 @@ import EyeCatch from '../components/eye-catch/eye-catch.component';
 import PageBreadscrumb from '../components/page-breadscrumb/page-breadscrumb.component';
 import MasonryWrap from '../components/masonry/masonry-wrap.component';
 import Masonry from '../components/masonry/masonry.component';
+import Modal from '../components/modal/modal.component';
 
 import YoutubeService from '../services/google-youtube.service';
 
