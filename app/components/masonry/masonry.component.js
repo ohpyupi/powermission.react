@@ -1,10 +1,14 @@
 import React from 'react';
+import uuid from 'uuid/v4';
+import Modal from '../modal/modal.component';
+import YoutubeIframe from '../youtube/youtube-iframe.component';
 
 export default class Masonry extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			item: {},
+			modalId: uuid(),
 		};
 	}
 	componentWillMount() {
@@ -17,11 +21,9 @@ export default class Masonry extends React.Component {
 		let default_description = `
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 		`;
-		console.log(item);
 		let _style = {
 			backgroundImage: `url(${item.thumbnails.high.url})`,
 		};
-		console.log(_style);
 		return (
 			<div className='masonry-grid-item'>
 				<div className='item-con'>
@@ -33,10 +35,17 @@ export default class Masonry extends React.Component {
 						<p>
 							{item.description || default_description}
 						</p>
-						<button type='button' className='btn btn-purple color-white'>Watch</button>
+						<button type='button' onClick={()=>{this._openModal()}} className='btn btn-purple color-white'>Watch</button>
+						<Modal id={this.state.modalId} title={item.title} youtube={this.youtube}>
+							<YoutubeIframe ref={(ele)=>{this.youtube = ele}} videoId={item.resourceId.videoId}/>
+						</Modal>
 					</div>
 				</div>
 			</div>
 		);
+	}
+	_openModal() {
+		let modal = document.getElementById(this.state.modalId);
+		modal.style.display = 'block';
 	}
 }
