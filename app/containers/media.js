@@ -55,7 +55,7 @@ export default class Media extends React.Component {
 				<MainNav _handleLogout={()=>{this._handleLogout()}}/>
 				<EyeCatch page='media'/>
 				<section className='container page-content'>
-					<PageBreadscrumb/>
+					<PageBreadscrumb page='media'/>
 					{masonryWrap}
 				</section>
 				<Footer/>

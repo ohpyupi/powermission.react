@@ -6,15 +6,18 @@ const nav = new NavService();
 export default class PageBreadscrumb extends React.Component {
 	constructor(props) {
 		super(props);
-		this.nav = nav.main[3];// nav object for media
+		this.nav = {};
+	}
+	componentWillMount() {
+		this.init();
 	}
 	render() {
 		let _url = window.location.pathname;
+		console.log(_url);
 		let parentName = this.nav.parentName;
 		let childView = this.nav.children.filter((x)=>{
 			if (x.url === _url) return true;
 		})[0];
-		console.log(parentName);
 		return (
 			<aside className='board-nav'>
 				<h6>
@@ -28,5 +31,17 @@ export default class PageBreadscrumb extends React.Component {
 				<h1>{childView.name}</h1>
 			</aside>
 		)
+	}
+	init() {
+		switch(this.props.page) {
+			case "media":
+				this.nav = nav.main[3];
+				break;
+			case "board":
+				this.nav = nav.main[4];
+				break;
+			default:
+				break;
+		}
 	}
 }

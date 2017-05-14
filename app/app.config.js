@@ -3,6 +3,7 @@ import {UIRouterReact, servicesPlugin, pushStateLocationPlugin} from 'ui-router-
 import Home from './containers/home';
 import Auth from './containers/auth';
 import Media from './containers/media';
+import Board from './containers/board';
 
 import AuthService from './services/auth.service';
 import ErrorService from './services/error.service';
@@ -36,6 +37,11 @@ let states = [
 		name: 'media',
 		url: '/media/:mediaType',
 		component: Media,
+	},
+	{
+		name: 'board',
+		url: '/board/:boardType',
+		component: Board,
 	}
 ];
 
