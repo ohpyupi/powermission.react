@@ -4,6 +4,7 @@ import Footer from '../components/footer/footer.component';
 import ErrorService from '../services/error.service';
 import EyeCatch from '../components/eye-catch/eye-catch.component';
 import PageBreadscrumb from '../components/page-breadscrumb/page-breadscrumb.component';
+import Boards from '../components/boards/boards.component';
 
 export default class Board extends React.Component {
 	constructor(props) {
@@ -18,6 +19,7 @@ export default class Board extends React.Component {
 				<EyeCatch page='board'/>
 				<section className='container page-content'>
 					<PageBreadscrumb page='board'/>
+					<Boards/>
 				</section>
 				<Footer/>
 			</section>

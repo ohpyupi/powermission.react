@@ -42,6 +42,11 @@ let states = [
 		name: 'board',
 		url: '/board/:boardType',
 		component: Board,
+	},
+	{
+		name: 'board-crud',
+		url: '/board/:boardType/:crud',
+		component: Board,
 	}
 ];
 
