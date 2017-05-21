@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = '/';
 import axios from 'axios';
 import Auth from '../auth.service';
 
