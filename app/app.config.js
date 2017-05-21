@@ -47,6 +47,11 @@ let states = [
 		name: 'board-crud',
 		url: '/board/:boardType/:crud',
 		component: Board,
+		onEnter: (trans, state)=>{
+			if (!$auth.isLoggedIn()) {
+				$error.flash('Login is required.', 'auth', {authType: 'login'});
+			};
+		},
 	}
 ];
 

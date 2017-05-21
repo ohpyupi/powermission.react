@@ -4,6 +4,7 @@ import ErrorService from '../services/error.service';
 import AuthService from '../services/auth.service';
 import Signup from '../components/auth/signup.component';
 import Login from '../components/auth/login.component';
+import Footer from '../components/footer/footer.component';
 
 import hfunc from '../lib/hfunc';
 
@@ -58,6 +59,7 @@ export default class Auth extends React.Component {
 			);
 		}
 		return (
+			<div>
 			<section className='wrap-auth bg-gray'>
 				<div className='container'>
 					<div className='row'>
@@ -77,6 +79,8 @@ export default class Auth extends React.Component {
 					</div>
 				</div>
 			</section>
+			<Footer/>
+			</div>
 		);
 	}
 	_validForm() {

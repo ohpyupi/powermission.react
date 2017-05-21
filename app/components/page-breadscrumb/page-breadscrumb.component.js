@@ -13,10 +13,11 @@ export default class PageBreadscrumb extends React.Component {
 	}
 	render() {
 		let _url = window.location.pathname;
-		console.log(_url);
+		let pageType = _url.split('/')[1];
 		let parentName = this.nav.parentName;
 		let childView = this.nav.children.filter((x)=>{
-			if (x.url === _url) return true;
+			let _pageType = x.url.split('/')[1];
+			if (_pageType === pageType) return true;
 		})[0];
 		return (
 			<aside className='board-nav'>

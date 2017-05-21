@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 var PostSchema = new mongoose.Schema({
 	title: String,
 	category: String,
-	markup: String,
-	hId: String,
+	delta: {type: mongoose.Schema.Types.Mixed},
 	isDeleted: {type: Boolean, default: false},
 	createdAt: {type: Date, default: Date.now},
 	numVisited: {type: Number, default: 0},
