@@ -20,22 +20,45 @@ router.get('/:id', (req, res, next)=>{
 	})
 });
 
-router.post('/get-all', (req, res, next)=>{
-	let query = req.body || {};
-	Post.find(query).populate('author').exec((err, posts)=>{
-		if (err) return next(err);
-		return res.json(posts);
+router.put('/:id', auth, (req, res, next)=>{
+	Post.findById(req.params.id)
+	.then(post=>{
+		post.title = req.body.title;
+		post.delta = req.body.delta;
+		post.updatedAt = Date.now();
+		return post.save();
 	})
+	.then(()=>{
+		res.json({message: "Successfully updated."});
+	})
+	.catch(next);
 });
 
-router.post('/create', auth, (req, res, next)=>{
+router.get('/all/:category/:page', (req, res, next)=>{
+	let perPage = 15;
+	let page = req.params.page || 1;
+	console.log(page);
+	Post.find({category: req.params.category})
+	.sort({createdAt: -1})
+	.limit(perPage)
+	.skip((page-1)*perPage)
+	.populate('author')
+	.exec((err, postArr)=>{
+		if (err) return next(err);
+		res.json({
+			postArr,
+		});
+	});
+});
+
+router.post('/', auth, (req, res, next)=>{
 	let post = new Post(req.body);
 	post.author = req.payload._id;
 	Post.count({category: post.category}).exec(function (err, count) {
 		post.hId = count + 1;
 		post.save(err=>{
 			if (err) return next(err);
-			return res.json({message: 'Successfully registered!'});
+			return res.json({message: 'Successfully composed!'});
 		});
 	});
 })

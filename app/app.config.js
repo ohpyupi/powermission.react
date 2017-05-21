@@ -52,7 +52,14 @@ let states = [
 				$error.flash('Login is required.', 'auth', {authType: 'login'});
 			};
 		},
-	}
+	},
+	{
+		name: 'board-one',
+		url: '/board/:boardType/:crud/:id',
+		component: Board,
+		onEnter: (trans, state)=>{
+		},
+	},
 ];
 
 router.urlRouter.otherwise("/");

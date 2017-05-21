@@ -3,11 +3,21 @@ const localStorageName = 'powermission-react';
 import axios from 'axios';
 
 export default class AuthService {
-	constructor ($http) {
+	constructor () {
 		this._$window = window;
 	}
 	getToken() {
 		return this._$window.localStorage[localStorageName];
+	}
+	getPayload() {
+		let token = this.getToken();
+		let payload = {};
+		try {
+			payload = JSON.parse(this._$window.atob(token.split('.')[1]));
+		}	catch (err) {
+			console.log(err);
+		}
+		return payload;
 	}
 	saveToken(token) {
 		this._$window.localStorage[localStorageName] = token;

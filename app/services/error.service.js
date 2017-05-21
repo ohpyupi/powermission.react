@@ -26,7 +26,10 @@ export default class ErrorService {
 			this.snackbar.style.opacity = opacityAnimator.square(x);
 			this.snackbar.style.bottom = `${bottomAnimator.square(x)}px`;
 		}, 30);
-		if (args[0]) this.$state.go(args[0], args[1] ? args[1]: {});
+		if (args[0]) {
+			this.$state.go(args[0], args[1] ? args[1]: {});
+			location.reload();
+		}
 	}
 	remove() {
 		let body = document.getElementsByTagName('body')[0];
