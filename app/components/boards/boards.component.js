@@ -1,9 +1,12 @@
 import React from 'react';
+import Button from '../button';
 import './boards.component.less';
 
 export default class BoardList extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+	componentWillMount() {
 	}
 	render() {
 		return (
@@ -47,12 +50,7 @@ export default class BoardList extends React.Component {
 					</div>
 				</div>
 				<div className='util col'>
-					<div className='btn-con'>
-						<a  className='btn btn-white color-red' href='/'>
-							<i aria-hidden="true" className='fa fa-pencil'></i>
-							&nbsp; Write
-						</a>
-					</div>
+					<Button className='btn-white color-red' href={`/board/${this.props.type}/create`} faClassName='fa-pencil' text='Write'/>
 					<div className='pagination-con row'>
 						<a className='btn btn-pagination'>&lt;</a>
 						<a className='btn btn-pagination active'>1</a>

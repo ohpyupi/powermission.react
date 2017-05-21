@@ -5,21 +5,33 @@ import ErrorService from '../services/error.service';
 import EyeCatch from '../components/eye-catch/eye-catch.component';
 import PageBreadscrumb from '../components/page-breadscrumb/page-breadscrumb.component';
 import Boards from '../components/boards/boards.component';
+import BoardCrud from '../components/boards/board-crud';
 
 export default class Board extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
+		this.$stateParams = this.props.resolves.$stateParams;
+		this.boardType;
+		this.crudType;
 	}
-	componentDidMount() {
+	componentWillMount() {
+		this.boardType = this.$stateParams.boardType;
+		this.crud = this.$stateParams.crud;
 	}
 	render() {
+		let board;
+		if (!this.crud) {
+			board = <Boards type={this.boardType}/>
+		} else {
+			board = <BoardCrud/>
+		}
 		return (
 			<section id='board'>
 				<MainNav _handleLogout={()=>{this._handleLogout()}}/>
 				<EyeCatch page='board'/>
 				<section className='container page-content'>
 					<PageBreadscrumb page='board'/>
-					<Boards/>
+					{board}
 				</section>
 				<Footer/>
 			</section>
