@@ -43,7 +43,7 @@ export default class Board extends React.Component {
 		if (!this.crud) {
 			board = <Boards type={this.boardType} postArr={this.state.postArr}/>
 		} else {
-			board = <BoardCrud type={this.boardType} state={this.crud} post={this.state.post} CRUD={(payload, url)=>this.CRUD(payload, url)}/>
+			board = <BoardCrud type={this.boardType} state={this.crud} increaseNumVisited={()=>this.increaseNumVisited()} post={this.state.post} CRUD={(payload, url)=>this.CRUD(payload, url)}/>
 		}
 		return (
 			<section id='board'>
@@ -67,12 +67,22 @@ export default class Board extends React.Component {
 		.catch(err=>{});
 	}
 	loadPost() {
-		this.$post.CRUD({method: "get"}, `/${this.postId}`)
+		this.$post.CRUD({method: "get"}, `${this.postId}`)
 		.then(res=>{
 			let _tmp = Object.assign({}, this.state);
 			_tmp.post = res.data;
 			this.setState(_tmp);
 		})
+		.catch(err=>{
+			console.log(err);
+			this.$error.flash(err.data.message);
+		});
+	}
+	increaseNumVisited() {
+		this.$post.CRUD({
+			method: "put", 
+		}, `numVisited/${this.postId}`)
+		.then(res=>{})
 		.catch(err=>{
 			console.log(err);
 			this.$error.flash(err.data.message);

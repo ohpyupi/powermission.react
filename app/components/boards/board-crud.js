@@ -32,6 +32,9 @@ export default class Component extends React.Component {
 		});
 		this.updatePost();
 		this.syncEditorPhase();
+		if (this.props.state === "view") {
+			this.props.increaseNumVisited();
+		}
 	}
 	updatePost() {
 		let title = document.querySelector('input.title');

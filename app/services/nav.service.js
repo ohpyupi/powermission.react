@@ -13,22 +13,22 @@ export default class NavService {
 					{
 						name: "역사",
 						url: "/introduction/history",
-						img: '',
+						img: 'history.png',
 					},
 					{
 						name: "비전",
 						url: "/introduction/visions",
-						img: '',
+						img: 'vision.png',
 					},
 					{
 						name: "조직/부서",
 						url: "/introduction/organization",
-						img: '',
+						img: 'organization.png',
 					},
 					{
 						name: "오시는길",
 						url: "/introduction/contact-us",
-						img: '',
+						img: 'location.png',
 					},
 				],
 			},
@@ -39,12 +39,12 @@ export default class NavService {
 					{
 						name: '이달의 책',
 						url: '/train/book-of-the-month',
-						img: '',
+						img: 'book.png',
 					},
 					{
 						name: '제자훈련',
 						url: '/train/discipleship',
-						img: '',
+						img: 'training.png',
 					},
 				],
 			},
@@ -55,12 +55,12 @@ export default class NavService {
 					{
 						name: '선교소개',
 						url: '/mission/status',
-						img: '',
+						img: 'mission-intro.png',
 					},
 					{
 						name: '선교소식',
 						url: '/mission/updates',
-						img: '',
+						img: 'mission-news.png',
 					},
 				],
 			},
@@ -86,7 +86,7 @@ export default class NavService {
 					{
 						name: '교회앨범',
 						url: '/media/album',
-						img: '',
+						img: 'album.png',
 					},
 				],
 			},
