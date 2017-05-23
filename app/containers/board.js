@@ -5,6 +5,7 @@ import ErrorService from '../services/error.service';
 import EyeCatch from '../components/eye-catch/eye-catch.component';
 import PageBreadscrumb from '../components/page-breadscrumb/page-breadscrumb.component';
 import Boards from '../components/boards/boards.component';
+import Pagination from '../components/pagination';
 import BoardCrud from '../components/boards/board-crud';
 import PostService from '../services/post';
 
@@ -38,10 +39,19 @@ export default class Board extends React.Component {
 			this.loadPostArr(this.boardType, this.state.page);
 		}
 	}
+	changePage(pageDest) {
+		let _tmp = Object.assign({}, this.state);
+		_tmp.page = pageDest;
+		this.setState(_tmp);
+	}
 	render() {
 		let board;
 		if (!this.crud) {
-			board = <Boards type={this.boardType} postArr={this.state.postArr}/>
+			board = (
+				<Boards type={this.boardType} postArr={this.state.postArr}>
+					<Pagination loadPostArr={(page)=>{this.loadPostArr(this.boardType, page)}} changePage={(page)=>this.changePage(page)}></Pagination>
+				</Boards>
+			);
 		} else {
 			board = <BoardCrud type={this.boardType} state={this.crud} increaseNumVisited={()=>this.increaseNumVisited()} post={this.state.post} CRUD={(payload, url)=>this.CRUD(payload, url)}/>
 		}

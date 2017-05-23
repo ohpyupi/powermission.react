@@ -55,15 +55,7 @@ export default class BoardList extends React.Component {
 				</div>
 				<div className='util col'>
 					<Button className='btn-white color-red' href={`/board/${this.props.type}/create`} faClassName='fa-pencil' text='Write'/>
-					<div className='pagination-con row'>
-						<a className='btn btn-pagination'>&lt;</a>
-						<a className='btn btn-pagination active'>1</a>
-						<a className='btn btn-pagination'>2</a>
-						<a className='btn btn-pagination'>3</a>
-						<a className='btn btn-pagination'>4</a>
-						<a className='btn btn-pagination'>5</a>
-						<a className='btn btn-pagination'>&gt;</a>
-					</div>
+					{this.props.children}
 					<div className='searchbar-con row'>
 						<input className='form-control'/>
 						<button type='button' className='btn btn-white'>
