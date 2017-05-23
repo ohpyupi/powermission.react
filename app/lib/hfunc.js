@@ -24,5 +24,25 @@ export default {
 		} catch (err) {
 			return false;
 		}
+	},
+	findSibling (ele, delta) {
+		let command;
+		let done = false;
+		let idx = 1;
+		if (delta > 0) {
+			command = 'nextSibling';
+		} else {
+			command = 'previousSibling';
+		}
+		let sibling = ele[command];
+		while (!done) {
+			if (idx === Math.abs(delta)) {
+				done = !done;
+			} else {
+				sibling = sibling[command];
+				idx++;
+			}
+		}
+		return sibling;
 	}
 }
