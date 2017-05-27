@@ -27,11 +27,11 @@ export default class Home extends React.Component {
 			<section id='home'>
 				<MainNav _handleLogout={()=>{this._handleLogout()}}/>
 				<FullWidthCarousel imgArr={this.carouselImgArr}/>
-				<CardWrap>
+				<CardWrap className='bg-d-gray'>
 					<Card img={require('../lib/img/word.jpg')}/>
 					<Card img={require('../lib/img/media.jpg')}/>
 					<Card img={require('../lib/img/newcomers.jpg')}/>
-					<Card/>
+					<Card img={require('../lib/img/tune.jpg')}/>
 				</CardWrap>
 				<Footer/>
 			</section>
