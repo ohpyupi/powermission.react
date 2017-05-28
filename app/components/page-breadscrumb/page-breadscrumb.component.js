@@ -16,8 +16,7 @@ export default class PageBreadscrumb extends React.Component {
 		let pageType = _url.split('/')[1];
 		let parentName = this.nav.parentName;
 		let childView = this.nav.children.filter((x)=>{
-			let _pageType = x.url.split('/')[1];
-			if (_pageType === pageType) return true;
+			if (x.url === window.location.pathname) return true;
 		})[0];
 		return (
 			<aside className='board-nav'>
