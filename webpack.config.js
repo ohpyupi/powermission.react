@@ -16,7 +16,12 @@ module.exports = {
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery',
-		})
+		}),
+		new webpack.DefinePlugin({
+			NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+			GOOGLE_MAP_KEY: JSON.stringify(process.env.GOOGLE_MAP_KEY),
+			//API_URL: JSON.stringify(process.env.NODE_ENV === "production" ? "https://jubleit-rest.herokuapp.com" : "http://localhost:7777"),
+		}),
 	],
 	module: {
 		loaders: [
