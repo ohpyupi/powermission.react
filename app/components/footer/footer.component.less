@@ -2,13 +2,23 @@
 
 footer {
 	display: flex;
-	height: 360px;
+	min-height: 360px;
 	margin-top: 2px;
 	padding: 4rem 20px;
 	justify-content: space-around;
 	.con {
 		width: 50%;
 		margin: auto;
+		.row.google-map {
+			box-sizing: border-box;
+			padding: 30px;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			.google-map {
+				width: 50%;
+			}
+		}
 		.sitemap {
 			.col-1 {
 				text-align: center;
