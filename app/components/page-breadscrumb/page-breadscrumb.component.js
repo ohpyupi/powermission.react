@@ -36,6 +36,9 @@ export default class PageBreadscrumb extends React.Component {
 	}
 	init() {
 		switch(this.props.page) {
+			case "introduction":
+				this.nav = nav.main[0];
+				break;
 			case "media":
 				this.nav = nav.main[3];
 				break;

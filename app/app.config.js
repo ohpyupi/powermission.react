@@ -4,6 +4,7 @@ import Home from './containers/home';
 import Auth from './containers/auth';
 import Media from './containers/media';
 import Board from './containers/board';
+import Introduction from './containers/introduction';
 
 import AuthService from './services/auth.service';
 import ErrorService from './services/error.service';
@@ -31,6 +32,13 @@ let states = [
 		component: Auth,
 		onEnter: (trans, state)=>{
 			if ($auth.isLoggedIn()) return $error.flash('Already signed in.', 'home');
+		},
+	},
+	{
+		name: 'introduction',
+		url: '/introduction/:introductionType',
+		component: Introduction,
+		onEnter: (trans, state)=>{
 		},
 	},
 	{
